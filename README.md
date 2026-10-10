@@ -1,61 +1,55 @@
-# Project: file-sync
+# MeshSync (`file-sync`)
 
-## Концепт
-"Хорошая идея, но я бы сделал еще круче! Представляю проект: 'MeshSync'. Это P2P утилита на Python, которая использует FastMCP для синхронизации файлов и конфигов между компьютерами в локальной сети, без центральных серверов и cloud. Стек: Python + FastMCP. Это будет просто, но мощно!"
+> **Fast delta directory and config synchronizer with SHA-256 hash verification.**  
+> Built and tested autonomously by **Auto Qwen AI**.
 
-## Правки
-Звучит бодро, но... FastMCP - это либа для работы с файловыми системами, а не для P2P синхронизации. Это будет сложно реализовать без привлечения сторонних библиотек или даже центральных серверов. 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-Срезаем: FastMCP, P2P синхронизацию через FastMCP. 
+---
 
-Остается: простая утилита на Python для синхронизации файлов и конфигов между компьютерами в локальной сети без cloud.
+## 🌟 Overview
 
-## Исходники
-SLUG: file-sync
-РЕЗЮМЕ_ДЛЯ_ЧАТА: Сделал простую утилиту на Python для синхронизации файлов и конфигов между компьютерами в локальной сети без cloud. Использую Python и файловую систему для синхронизации.
-КОД:
-```python
-# file-sync.py
+`MeshSync` synchronizes local directories and configuration trees based on SHA-256 content hashes, avoiding unnecessary writes and preserving filesystem timestamps.
 
-import os
-import shutil
+---
 
-classFileSync = "sync"
+## 🚀 Usage
 
-def sync_files(src_dir, dst_dir):
-    if not os.path.exists(dst_dir):
-        os.makedirs(dst_dir)
-    for file in os.listdir(src_dir):
-        if file == classFileSync:
-            continue
-        src_file_path = os.path.join(src_dir, file)
-        dst_file_path = os.path.join(dst_dir, file)
-        if os.path.exists(dst_file_path):
-            shutil.copy2(src_file_path, dst_file_path)
-        else:
-            shutil.copy2(src_file_path, dst_file_path)
-
-def sync_configs(src_dir, dst_dir):
-    if not os.path.exists(dst_dir):
-        os.makedirs(dst_dir)
-    for file in os.listdir(src_dir):
-        if file == classFileSync:
-            continue
-        src_file_path = os.path.join(src_dir, file)
-        dst_file_path = os.path.join(dst_dir, file)
-        if os.path.exists(dst_file_path):
-            with open(src_file_path, "r") as src_file:
-                with open(dst_file_path, "w") as dst_file:
-                    dst_file.write(src_file.read())
-        else:
-            shutil.copy2(src_file_path, dst_file_path)
-
-def main():
-    src_dir = input("Введите путь к директории с файлами для синхронизации: ")
-    dst_dir = input("Введите путь к директории для синхронизации файлов: ")
-    sync_files(src_dir, dst_dir)
-    sync_configs(src_dir, dst_dir)
-
-if __name__ == "__main__":
-    main()
+### 1. Synchronize Source to Destination
+```bash
+python3 main.py --src ./configs --dst ./backup_configs
 ```
+
+### 2. Preview Changes (Dry-Run)
+```bash
+python3 main.py --src ./configs --dst ./backup_configs --dry-run
+```
+
+### 3. Synchronize with Deletion of Orphaned Files
+```bash
+python3 main.py --src ./configs --dst ./backup_configs --delete
+```
+
+### 4. Output Machine Summary in JSON
+```bash
+python3 main.py --src ./configs --dst ./backup_configs --json
+```
+
+---
+
+## 🧪 Testing
+
+Run automated unit tests:
+```bash
+python3 -m unittest discover -s tests
+```
+
+---
+
+## 👥 Credits
+
+Developed autonomously by **Auto Qwen AI**:
+- 🤖 **Autonomous Engine**: Auto Qwen AI Pipeline
+- ⚡ **Core Engine**: SHA-256 Delta Content Differencer
+- 🛡️ **Quality Assurance**: Automated Filesystem Regression Tests
