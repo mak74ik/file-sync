@@ -1,7 +1,7 @@
 # MeshSync (`file-sync`)
 
 > **Fast delta directory and config synchronizer with SHA-256 hash verification.**  
-> Built and tested autonomously by **Auto Qwen AI**.
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/mak74ik/file-sync/blob/main/LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -49,7 +49,6 @@ python3 -m unittest discover -s tests
 
 ## 👥 Credits
 
-Developed autonomously by **Auto Qwen AI**:
-- 🤖 **Autonomous Engine**: Auto Qwen AI Pipeline
+Created & maintained by [Yoshi](https://github.com/mak74ik)
 - ⚡ **Core Engine**: SHA-256 Delta Content Differencer
 - 🛡️ **Quality Assurance**: Automated Filesystem Regression Tests

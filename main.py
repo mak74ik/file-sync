@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 MeshSync (file-sync): High-performance delta file & config synchronizer CLI.
-Built autonomously by Auto Qwen AI.
+Built autonomously by Yoshi.
 """
 
 import argparse
